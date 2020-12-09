@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: ent
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
+    volumes:
+      # - ./db/my.cnf:/etc/mysql/my.cnf
+      - db-volume:/var/lib/mysql
+
+volumes:
+  db-volume:
